@@ -1,3 +1,66 @@
-<p>
-  header works!
-</p>
+<nav class="navbarNav">
+  <ul class="navbarUl">
+    <li class="leftLi">
+      <div class="navbarHeaderDiv">
+        <table class="headerIconTable">
+          <tr>
+            <td><div class="headerIconDiv"></div></td>
+            <td><div class="headerIconDiv"></div></td>
+          </tr>
+          <tr>
+            <td><div class="headerIconDiv"></div></td>
+            <td><div class="headerIconDiv"></div></td>
+          </tr>
+        </table>
+        <span class="navbarBrandSpan">Rescorce Management</span>
+      </div>
+    </li>
+    <li class="centerLi">
+      <span>{{ pageTitle }}</span>
+    </li>
+    <li class="rightLi">
+      <div class="navbarRightDiv">
+        <ul class="navbarRightUl">
+          <li>
+            <button 
+              type="button"
+              class="loginButton"
+              [popover]="signState?userInfo:null"
+              placement="bottom"
+              [outsideClick]="true"
+              (click)="onSignIn()">
+              <i class="far fa-user-circle"></i>
+            </button>
+            <ng-template #userInfo>
+              <div>
+                <div class="popoverInfoDiv">
+                  <p class="usernameP">{{ username }}</p>
+                  <p class="memberP">Member since</p>
+                  <p class="timeP">Month-Year</p>
+                </div>
+                <div class="popoverBtnDiv">
+                  <div class="btnDiv1">
+                    <button>profile</button>
+                  </div>
+                  <div class="btnDiv2">
+                    <button
+                      (click)="onSignOut()">
+                      sign out</button>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </li>
+          <li class="userNameLi">
+            <span>{{ username }}</span>
+          </li>
+          <li>
+            <button class="loginButton">
+              <i class="far fa-question-circle"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</nav>

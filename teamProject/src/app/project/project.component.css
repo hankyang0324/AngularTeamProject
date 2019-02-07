@@ -1,0 +1,265 @@
+.proDiv1 {
+    box-sizing: border-box;
+    padding:30px 30px 30px 50px;
+    height:100%;
+}
+
+.selectDiv {
+    box-sizing: border-box;
+    text-align:right;
+    margin-bottom:50px;
+}
+
+.proDiv1 .tbDiv {
+    display: inline-block;
+    box-sizing: border-box;
+    width:50%;
+    vertical-align: top;
+}
+
+.navDiv {
+    padding: 20px 30px 20px 30px;
+    text-align: left;
+}
+
+.tb1Div {
+    margin-right:10px;
+    border:1px solid lightgrey;
+}
+
+.tb2Div {
+    margin-left:10px;
+    border:1px solid lightgrey;
+}
+
+.selectDiv .ui-corner-all {
+    border-radius:0;
+    text-align: left;
+}
+
+.selectDiv .ui-corner-all:focus {
+    outline: none;
+    border-color: grey;
+}
+
+.selectDiv .ui-dropdown .ui-dropdown-trigger{
+    border-left:1px solid grey !important;
+}
+
+.selectDiv .ui-dropdown-panel .ui-dropdown-filter-container .ui-dropdown-filter-icon{
+    color:black;
+}
+
+.selectDiv .ui-dropdown-panel .ui-dropdown-filter-container .ui-dropdown-filter:focus {
+    border-color:lightgrey;
+    box-shadow:  darkorange 0px 0px 5px ;
+}
+
+.selectDiv .ui-dropdown:not(.ui-state-disabled).ui-state-focus{
+    border-color:grey;
+}
+
+.selectDiv .ui-dropdown:not(.ui-state-disabled):hover {
+    border-color:grey;
+}
+
+.selectDiv .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item.ui-state-highlight, body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item-group.ui-state-highlight{
+    background-color: darkorange;
+    text-align: left;
+}
+
+.selectDiv .pi-chevron-down:before {
+    content: "▾";
+    padding-left: 4px;
+}
+
+.proDiv1 div.ui-table-caption {
+    background-color: gray !important;
+    border-width: 0 0 1px 0 !important;
+    border-style: solid !important;
+    border-color: lightgray !important;
+}
+
+.proDiv1 th {
+    border-right: 0 !important;
+    border-top: 0 !important;
+}
+
+.proDiv1 .cptDiv {
+    position: relative;
+    height: 30px;
+    font-size: 17px;
+}
+
+input:focus {
+    outline: none;
+}
+
+th{
+    text-align: center;
+}
+
+.proDiv1 .editBtn{
+    float: right;
+    position: relative;
+    top:1px;
+    width:28px;
+    height: 28px;
+    background-color: darkorange;
+    color:white;
+    border: none;
+    font-size:15px;
+    margin-left:5px;
+}
+
+.proDiv1 .iDiv{
+    margin-top:3px;
+}
+
+.editBtn:active {
+    border-left:1px solid black;
+    border-top:1px solid black;
+}
+
+.cptDiv .popover {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: 1px 1px 3px gray;
+}
+
+.proDiv1 .cptDiv .popover.bottom {
+    margin-top:0;
+    margin-left:64px;
+}
+
+.cptDiv .popover.bottom>.arrow {
+    border-bottom-color: transparent;
+    margin-left: 0;
+}
+
+.cptDiv .popover.bottom>.arrow:after  {
+    border-bottom-color: transparent;
+}
+
+.cptDiv .popover-content.popover-body {
+    padding:0;
+}
+
+.proDiv1 .popoverItemsDiv {
+    width:155px;
+    padding:0px 15px 10px 15px;
+    color: dimgray;
+}
+
+.popoverItemsDiv ul {
+    padding-top:10px;
+    padding-left:0;
+    margin-bottom:0;
+}
+
+.popoverItemsDiv li {
+    list-style-type: none;
+    padding:5px 0;
+    cursor: pointer;
+}
+
+.popoverItemsDiv li:hover {
+    color:darkorange
+}
+
+.popoverItemsDiv li:active {
+    color:orangered;
+}
+
+a:focus {
+    outline:none;
+}
+
+.proDiv1 .ui-table .ui-table-tbody > tr > td {
+    text-align: left;
+    background-color: white !important;
+    border:none;
+}
+
+.proDiv1 .ui-table-scrollable-body {
+    padding-bottom:5px;
+    height:400px;
+}
+
+.ui-paginator .ui-paginator-pages .ui-paginator-page.ui-state-active {
+    background-color: darkorange !important;
+}
+
+.ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item.ui-state-highlight {
+    background-color: darkorange !important;
+}
+
+.proDiv1 .ui-paginator-bottom {
+    border-width:1px 0 0 0!important;
+    border-style: solid !important;
+    border-color: lightgray !important;
+}
+
+.proDiv1 td,.proDiv1 th {  
+    width: 150px !important;
+}
+
+.proDiv1 th:nth-child(1) { 
+    display: none;
+}
+/*藏checkbox*/
+
+.proDiv1 th:nth-child(2) {
+    border-left: 0 !important;
+}
+
+.proDiv1 tr td { 
+    padding-left:0 !important;
+}
+
+.proDiv1 tr td:nth-child(1) { 
+    width: 30px !important;
+    padding:0 !important;
+}
+
+.tb1Div :focus {
+    outline: none;
+}
+
+.tb2Div :focus {
+    outline: none;
+}
+
+.ui-chkbox .ui-chkbox-box.ui-state-active:not(.ui-state-disabled):hover{
+    border-color:orangered !important; 
+    background-color: orangered !important;
+}
+
+body .ui-chkbox .ui-chkbox-box.ui-state-active{
+    border-color:darkorange !important;
+    background-color:darkorange !important;
+}
+
+.navA{
+    font-size:15px;
+    font-weight: 450;
+}
+
+.navDiv .submitBtn{
+    float: right;
+    font-size: 14px;
+    color: white;
+    background-color: darkorange;
+    padding:4px 15px 4px 10px;
+    border: none;
+}
+
+.navDiv .submitBtn span{
+    font-size: 10px;
+}
+
+.submitBtn:active{
+    border-left:1px solid black;
+    border-top:1px solid black;
+}

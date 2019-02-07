@@ -1,3 +1,57 @@
-<p>
-  signin works!
-</p>
+<div class="signInDiv1">
+  <div class="signInDiv2">
+    <div class="signInDiv3">
+      <h1>Login</h1>
+      <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+        <div formGroupName="userData">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input 
+              type="text" 
+              id="username" 
+              formControlName="username"
+              class="form-control textInput"
+              [ngClass]="{borderRed:nameWarn}">
+            <span
+              *ngIf="!signinForm.get('userData.username').valid && (signinForm.get('userData.username').touched || nameWarn)"
+              class="help-block">
+              <span *ngIf="signinForm.get('userData.username').errors['nameIsForbidden']">
+                This name is invalid
+              </span>
+              <span *ngIf="signinForm.get('userData.username').errors['required']">
+                This field is required!
+              </span>
+            </span>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input 
+              type="password" 
+              id="password" 
+              formControlName="password"
+              class="form-control textInput"
+              [ngClass]="{borderRed:pwdWarn}">
+            <span
+              *ngIf="!signinForm.get('userData.password').valid && (signinForm.get('userData.password').touched || pwdWarn)"
+              class="help-block">
+              <span *ngIf="signinForm.get('userData.password').errors['nameIsForbidden']">
+                This password is invalid
+              </span>
+              <span *ngIf="signinForm.get('userData.password').errors['required']">
+                This field is required!
+              </span>
+            </span>
+          </div>
+        </div>
+        <button class="loginBtn" type="submit" >Login</button>
+        <label class="container">Remember me
+          <input type="checkbox" checked="checked">
+          <span class="checkmark"></span>
+        </label>
+      </form>
+      <button class="signupBtn" (click)="onSignUp()">sign up</button>
+      <a>Forgot password?</a>
+    </div>
+  </div>
+</div>
+

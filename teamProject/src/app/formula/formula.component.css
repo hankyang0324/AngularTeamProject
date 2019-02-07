@@ -1,0 +1,160 @@
+.fmlDiv1 {
+    box-sizing: border-box;
+    padding:30px 30px 30px 50px;
+    height:100%;
+}
+
+.selectDiv {
+    box-sizing: border-box;
+    text-align:right;
+    margin-bottom:50px;
+}
+
+.selectDiv .ui-corner-all {
+    border-radius:0;
+    text-align: left;
+}
+
+.selectDiv .ui-corner-all:focus {
+    outline: none;
+    border-color: grey;
+}
+
+.selectDiv .ui-dropdown .ui-dropdown-trigger{
+    border-left:1px solid grey !important;
+}
+
+.selectDiv .ui-dropdown-panel .ui-dropdown-filter-container .ui-dropdown-filter-icon{
+    color:black;
+}
+
+.selectDiv .ui-dropdown-panel .ui-dropdown-filter-container .ui-dropdown-filter:focus {
+    border-color:lightgrey;
+    box-shadow:  darkorange 0px 0px 5px ;
+}
+
+.selectDiv .ui-dropdown:not(.ui-state-disabled).ui-state-focus{
+    border-color:grey;
+}
+
+.selectDiv .ui-dropdown:not(.ui-state-disabled):hover {
+    border-color:grey;
+}
+
+.selectDiv .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item.ui-state-highlight, body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item-group.ui-state-highlight{
+    background-color: darkorange;
+    text-align: left;
+}
+
+.selectDiv .pi-chevron-down:before {
+    content: "▾";
+    padding-left: 4px;
+}
+
+.fmlDiv1 .tb1Div {
+    box-sizing: border-box;
+    border:1px solid lightgrey;
+}
+
+.tb1Div .ui-table-scrollable-body {
+    padding-bottom:5px;
+    height:400px;
+}
+
+.tb1Div div.ui-table-caption {
+    background-color: gray !important;
+    border-width: 0 0 1px 0 !important;
+    border-style: solid !important;
+    border-color: lightgray !important;
+    height: 45px;
+}
+
+.tb1Div .titleSpan {
+    color: white;
+}
+
+.tb1Div th {
+    border-right: 0 !important;
+    border-top: 0 !important;
+}
+
+.tb1Div th:nth-child(1) {
+    border-left: 0 !important;
+}
+
+.tb1Div .cptDiv {
+    position: relative;
+    text-align: left;
+}
+
+th{
+    text-align: center;
+}
+
+.tb1Div .ui-table .ui-table-tbody > tr > td {
+    text-align: left;
+    background-color: white !important;
+    border:none;
+}
+
+.tb1Div .ui-table-scrollable-body {
+    padding-bottom:5px;
+}
+
+.ui-paginator .ui-paginator-pages .ui-paginator-page.ui-state-active {
+    background-color: darkorange !important;
+}
+
+.ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item.ui-state-highlight {
+    background-color: darkorange !important;
+}
+
+.tb1Div .ui-paginator-bottom {
+    border-width:1px 0 0 0!important;
+    border-style: solid !important;
+    border-color: lightgray !important;
+}
+
+.tb1Div td,.tb1Div th {  
+    width: 250px !important;
+}
+/* 这里的width是min-width，不知道为啥*/
+
+.tb1Div input{
+    outline: none !important;
+    box-shadow:darkorange 0px 0px 5px ;
+    border:none;
+}
+
+.tb1Div .ui-table .ui-table-tbody>tr>td.ui-editing-cell{
+    padding:0 10px 0 10px;
+}
+
+.navDiv {
+    padding: 20px 30px 20px 30px;
+    text-align: left;
+}
+
+.navA{
+    font-size:15px;
+    font-weight: 450;
+    cursor: pointer;
+}
+
+.navDiv .submitBtn{
+    float: right;
+    font-size: 14px;
+    color: white;
+    background-color: darkorange;
+    padding:4px 15px 4px 10px;
+    border: none;
+}
+
+.navDiv .submitBtn span{
+    font-size: 10px;
+}
+
+.submitBtn:active{
+    border-left:1px solid black;
+    border-top:1px solid black;
+}

@@ -1,0 +1,26 @@
+<div class="sliderBarDiv"> 
+  <ul class="sliderBarUl">
+    <li>
+      <a 
+        routerLinkActive="active-link" 
+        [routerLink]="['/resource']">Resource</a>
+    </li>
+    <li>
+      <a
+        routerLinkActive="active-link" 
+        [routerLink]="['/project']">Project</a>
+    </li>
+    <li>
+      <a
+        routerLinkActive="active-link" 
+        [routerLink]="['/formula']">Formula</a>
+    </li>
+  </ul>
+</div>
+<button 
+  class="sliderBarBtn"
+  (click)="sliderToggle()"
+  [ngClass]="{active:sliderOpen}">
+  <span></span>
+  <span></span>
+</button>

@@ -1,0 +1,182 @@
+.tempDiv1 {
+    box-sizing: border-box;
+    padding:30px 30px 30px 50px;
+    height:100%;
+}
+
+.selectDiv {
+    box-sizing: border-box;
+    text-align:right;
+    margin-bottom:50px;
+}
+
+.tempDiv2 {
+    display: inline-block;
+    box-sizing: border-box;
+    width:35%;
+    height: 450px;
+    vertical-align: top;
+    border:1px solid black;
+    padding: 1px 10px 0 10px;
+    text-align: left;
+}
+
+.tempDiv3 {
+    display: inline-block;
+    box-sizing: border-box;
+    width:65%;
+    height: 450px;
+    vertical-align: top;
+    border:1px solid black;
+    border-left:none;
+    padding: 1px 10px 0 10px;
+    text-align: left;
+}
+
+.selectDiv .ui-corner-all {
+    border-radius:0;
+    text-align: left;
+}
+
+.selectDiv .ui-corner-all:focus {
+    outline: none;
+    border-color: grey;
+}
+
+.selectDiv .ui-dropdown .ui-dropdown-trigger{
+    border-left:1px solid grey !important;
+}
+
+.selectDiv .ui-dropdown-panel .ui-dropdown-filter-container .ui-dropdown-filter-icon{
+    color:black;
+}
+
+.selectDiv .ui-dropdown-panel .ui-dropdown-filter-container .ui-dropdown-filter:focus {
+    border-color:lightgrey;
+    box-shadow:  darkorange 0px 0px 5px ;
+}
+
+.selectDiv .ui-dropdown:not(.ui-state-disabled).ui-state-focus{
+    border-color:grey;
+}
+
+.selectDiv .ui-dropdown:not(.ui-state-disabled):hover {
+    border-color:grey;
+}
+
+.selectDiv .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item.ui-state-highlight, body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item-group.ui-state-highlight{
+    background-color: darkorange;
+    text-align: left;
+}
+
+.selectDiv .pi-chevron-down:before {
+    content: "▾";
+    padding-left: 4px;
+}
+
+.tempDiv1 div.ui-table-caption {
+    text-align: left;
+}
+
+.tempDiv1 th {
+    display:none;
+}
+
+.tempDiv2 tr td:nth-child(2) { 
+    width: 35% !important;
+}
+
+.tempDiv1 :focus {
+    outline: none;
+}
+
+.ui-chkbox .ui-chkbox-box.ui-state-active:not(.ui-state-disabled):hover{
+    border-color:orangered !important; 
+    background-color: orangered !important;
+}
+
+.ui-chkbox .ui-chkbox-box.ui-state-active{
+    border-color:darkorange !important;
+    background-color:darkorange !important;
+}
+
+.tempDiv1 .editBtn{
+    position: relative;
+    top:1px;
+    width:28px;
+    height: 28px;
+    background-color: darkorange;
+    color:white;
+    border: none;
+    font-size:20px;
+}
+
+.editBtn:active {
+    border-left:1px solid black;
+    border-top:1px solid black;
+}
+
+.tempDiv1 .iDiv{
+    padding-top:1px;
+    padding-right: 2px;
+    font-size: 15px;
+}
+
+.tempDiv3 tr td:nth-child(4) { 
+    width: 10% !important;
+}
+
+.tempDiv3 .addHeaderInput {
+    width:100%;
+}
+
+.tempDiv3 .ui-table-caption {
+    border-bottom:1px solid lightgray !important;
+}
+
+.tempDiv3 td {
+    border-top: 20px solid white !important;
+    border-bottom: 20px solid white !important;
+    padding: 0 !important;
+    background-color: #f4f4f4 !important;
+}
+
+.tempDiv3 .tdDiv {
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    padding:10px;
+    height:70px;
+}
+
+.tempDiv3 .addDiv {
+    float: right;
+    font-size: 16px;
+    font-weight: 400px;
+}
+
+.addDiv .editBtn span {
+    font-weight: 500;
+    position: relative;
+    top:-3px;
+}
+
+.tempDiv1 .submitBtn{
+    float: right;
+    font-size: 14px;
+    color: white;
+    background-color: darkorange;
+    padding:8px 10px 8px 10px;
+    width:120px;
+    border: none;
+    text-align:center;
+    margin-top: 20px;
+}
+
+.submitBtn:active {
+    border-left:1px solid black;
+    border-top:1px solid black;
+}
+
+.disabled {
+    opacity:0.6;
+}

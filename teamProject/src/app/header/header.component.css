@@ -1,0 +1,163 @@
+.navbarNav {
+    border: 0;
+    height:70px;
+    background-color:white;
+    border-bottom:1px black solid;
+    border-top:1px lightgrey solid;
+    box-sizing: border-box;
+}
+
+.navbarUl {
+    position: relative;
+    margin:0;
+    padding:0;
+}
+
+.navbarUl li {
+    display:inline-block;
+}
+
+.leftLi {
+    width:40%;
+}
+
+.navbarHeaderDiv {
+    background-color:darkorange;
+    width:240px;
+    display:inline-block;
+}
+
+.headerIconTable {
+    position: relative;
+    padding-top: 0;
+    left: -2px;
+    top:14px;
+}
+
+.headerIconDiv {
+    background-color: white;
+    width:24px;
+    height:20px;
+    border: 2px darkorange solid;
+    border-radius: 5px;
+}
+
+.navbarBrandSpan {
+    position: relative;
+    color:white;
+    font-size:18px;
+    left:50px;
+    top:-10px;
+}
+
+.centerLi {
+    position: relative;
+    width:20%;
+    text-align:center;
+    top:-10px;
+    font-size:35px;
+    font-weight:400;
+}
+
+.rightLi {
+    float:right;
+}
+
+.navbarRightUl {
+    padding-left:0;
+    padding-right:20px;
+}
+
+.navbarRightUl li{
+    display:inline-block;
+}
+
+.userNameLi {
+    position: relative;
+    width:150px;
+    text-align:center;
+    font-weight: 400;
+    font-size: 18px;
+    top:15px;
+}
+
+
+.loginButton {
+    position: relative;
+    top:13px;
+    font-size:30px;
+    border: 0;
+    background:transparent;
+    color: black;
+}
+
+.loginButton:focus {
+    outline: none;
+    box-shadow: none; 
+    /* 取消点击时的蓝框以及阴影 */
+}
+
+li .popover {
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background-color:lightgrey;
+    box-shadow: none;
+}
+
+li .popover.left {
+    margin-left:10px;
+}
+
+li .popover.bottom {
+    margin-top:10px;
+}
+
+/* .popover-title {
+    background-color:black;
+    border-radius: 0;
+    border: 0;
+    color:white;
+    height:0;
+} */
+
+li .popover.bottom>.arrow {
+    border-bottom-color: black;
+    margin-left: 0;
+}
+
+li .popover.bottom>.arrow:after  {
+    border-bottom-color: black;
+}
+
+li .popover-content.popover-body {
+    padding:0;
+}
+
+.popoverInfoDiv {
+    background-color:black;
+    color:white;
+    text-align: center;
+    padding:40px 80px 1px 80px;
+}
+
+.popoverInfoDiv .usernameP {
+    font-size:25px;
+}
+
+.popoverInfoDiv .memberP, .popoverInfoDiv .timeP {
+    font-size:15px;
+}
+
+.popoverBtnDiv {
+    padding: 10px 10px;
+    font-size: 20px;
+}
+
+.popoverBtnDiv .btnDiv1 {
+    display: inline-block;
+}
+
+.popoverBtnDiv .btnDiv2 {
+    float: right;
+}

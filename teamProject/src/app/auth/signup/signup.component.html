@@ -1,3 +1,51 @@
-<p>
-  signup works!
-</p>
+<div class="signUpDiv1">
+  <div class="signUpDiv2">
+    <div class="signUpDiv3">
+      <h1>Sign up</h1>
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div formGroupName="userData">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input 
+              type="text" 
+              id="username" 
+              formControlName="username"
+              class="form-control textInput"
+              [ngClass]="{borderRed:nameWarn}">
+            <span
+              *ngIf="!signupForm.get('userData.username').valid && (signupForm.get('userData.username').touched || nameWarn)"
+              class="help-block">
+              <span *ngIf="signupForm.get('userData.username').errors['nameIsForbidden']">
+                This name is invalid
+              </span>
+              <span *ngIf="signupForm.get('userData.username').errors['required']">
+                This field is required!
+              </span>
+            </span>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input 
+              type="password" 
+              id="password" 
+              formControlName="password"
+              class="form-control textInput"
+              [ngClass]="{borderRed:pwdWarn}">
+            <span
+              *ngIf="!signupForm.get('userData.password').valid && (signupForm.get('userData.password').touched || pwdWarn)"
+              class="help-block">
+              <span *ngIf="signupForm.get('userData.password').errors['nameIsForbidden']">
+                This password is invalid
+              </span>
+              <span *ngIf="signupForm.get('userData.password').errors['required']">
+                This field is required!
+              </span>
+            </span>
+          </div>
+        </div>
+        <button class="signupBtn" type="submit" >sign up</button>
+      </form>
+    </div>
+  </div>
+</div>
+

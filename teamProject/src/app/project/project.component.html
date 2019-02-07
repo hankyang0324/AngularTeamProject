@@ -1,3 +1,148 @@
-<p>
-  project works!
-</p>
+<div class="proDiv1">
+  <div class="selectDiv">
+    <p-dropdown 
+      [options]="projects" 
+      [(ngModel)]="selectedPro" 
+      (ngModelChange)="onChangeProject($event)"
+      optionLabel="label"
+      [style]="{'width':'200px'}" 
+      filter="true">
+      <ng-template let-project pTemplate="item">
+        <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+          <div style="font-size:14px;float:left;margin-top:4px">{{project.label}}</div>
+        </div>
+      </ng-template>
+    </p-dropdown>
+  </div>
+  <div class="tbDiv">
+    <div class="tb1Div">
+      <p-table
+        #p
+        [value]="clientDatas"
+        [paginator]="true"
+        [scrollable]="true"
+        [rows]="20"
+        [rowsPerPageOptions]="[10,20,50,100]"
+        [(selection)]="selectedDatas"
+        dataKey="code"
+        scrollHeight="400px">
+        <ng-template pTemplate="caption">
+          <div class="cptDiv">  
+            <span class="titleSpan">Resource Catalog</span> 
+            <button 
+              class="editBtn"
+              (click)="onShare()">
+              <div class="iDiv">
+                <i class="fas fa-share"></i>
+              </div>
+            </button>   
+            <button class="editBtn"
+              [popover]=items
+              placement="bottom"
+              [outsideClick]="true">
+              <div class="iDiv">
+                <i class="fas fa-list-ul"></i>
+              </div>
+            </button>  
+            <ng-template #items>
+              <div class="popoverItemsDiv">
+                <ul>
+                  <li (click)="onSelectAll()">
+                    <i class="far fa-check-square"></i>
+                    &#160;&#160;&#160;Select all
+                  </li>
+                  <li (click)="onClearAll()">
+                    <i class="far fa-square"></i>
+                    &#160;&#160;&#160;Clear selection
+                  </li>
+                </ul>
+              </div>
+            </ng-template>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th style="width: 3em">
+              <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+            </th>
+            <th>
+              PROJECT NAME
+            </th>
+            <th>
+              PROJECT CODE
+            </th>
+          </tr>
+        </ng-template>
+        <!--[pSelectableRow]随便给值，不能是rowData，否则被选中行的color会变白，真sb-->
+        <ng-template pTemplate="body" let-rowData>
+          <tr [pSelectableRow]="clientData" [pSelectableRowIndex]="rowIndex"> 
+            <td>
+              &#160;&#160;<p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+            </td>
+            <td *ngFor="let col of cols">
+              {{ rowData[col.field] }}
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>  
+  <div class="tbDiv">
+    <div class="tb2Div">
+      <p-table
+        [value]="sharedDatas"
+        [paginator]="true"
+        [scrollable]="true"
+        [rows]="20"
+        [rowsPerPageOptions]="[5,10,20,50,100]"
+        [(selection)]="selectedDatas2"
+        dataKey="code"
+        scrollHeight="400px">
+        <ng-template pTemplate="caption">
+          <div class="cptDiv">  
+            <span class="titleSpan">Project</span> 
+            <button 
+              class="editBtn"
+              (click)="onCancel()">
+              <div class="iDiv">
+                <i class="far fa-trash-alt"></i>
+              </div>
+            </button>  
+          </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+          <tr>
+            <th style="width: 3em">
+              <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+            </th>
+            <th>
+              PROJECT NAME
+            </th>
+            <th>
+              PROJECT CODE
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData>
+          <tr [pSelectableRow]="sharedData">
+            <td>
+              &#160;&#160;<p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+            </td>
+            <td *ngFor="let col of cols">
+              {{ rowData[col.field] }}
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div> 
+  </div>
+  <div class="navDiv">
+    <a class="navA" [routerLink]="['/resource']">Edit Resource</a>
+    <button 
+      class="submitBtn"
+      (click)="onSubmit()">
+      <span><i class="fas fa-check"></i></span>
+      &#160;Submit
+    </button>
+  </div>
+</div>
