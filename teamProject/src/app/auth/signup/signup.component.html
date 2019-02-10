@@ -3,6 +3,11 @@
     <div class="signUpDiv3">
       <h1>Sign up</h1>
       <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div
+          class="errDiv"
+          *ngIf="err">
+          User already exsits
+        </div>
         <div formGroupName="userData">
           <div class="form-group">
             <label for="username">Username</label>
@@ -15,8 +20,8 @@
             <span
               *ngIf="!signupForm.get('userData.username').valid && (signupForm.get('userData.username').touched || nameWarn)"
               class="help-block">
-              <span *ngIf="signupForm.get('userData.username').errors['nameIsForbidden']">
-                This name is invalid
+              <span *ngIf="signupForm.get('userData.username').errors['LengthForbidden']">
+                6 characters at least 
               </span>
               <span *ngIf="signupForm.get('userData.username').errors['required']">
                 This field is required!
@@ -34,8 +39,8 @@
             <span
               *ngIf="!signupForm.get('userData.password').valid && (signupForm.get('userData.password').touched || pwdWarn)"
               class="help-block">
-              <span *ngIf="signupForm.get('userData.password').errors['nameIsForbidden']">
-                This password is invalid
+              <span *ngIf="signupForm.get('userData.password').errors['LengthForbidden']">
+                6 characters at least 
               </span>
               <span *ngIf="signupForm.get('userData.password').errors['required']">
                 This field is required!

@@ -51,3 +51,8 @@ input.ng-invalid.ng-touched {
     border-left:3px solid dimgray;
     border-top:3px solid dimgray;
 }
+
+.errDiv {
+    color: red;
+    font-size: 19px;
+  }

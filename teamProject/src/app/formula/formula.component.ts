@@ -173,7 +173,20 @@ export class FormulaComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.dsService.project1DataLeft);
-    console.log(this.dsService.project1DataShared);
+    for(let item of this.dsService.project1Data){
+      console.log(item['_id']);
+      this.dsService.postData(1,{_id:item['_id'],name:item['name'],code:item['code']}).subscribe(
+        (res)=>{
+          console.log(res);
+        }
+      )
+    }
+    for(let item of this.dsService.project2Data){
+      this.dsService.postData(2,{_id:item['_id'],name:item['name'],code:item['code']}).subscribe(
+        (res)=>{
+          console.log(res);
+        }
+      )
+    }
   }
 }

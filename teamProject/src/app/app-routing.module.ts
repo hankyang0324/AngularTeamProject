@@ -12,10 +12,11 @@ const routes: Routes = [
   {path:'',redirectTo:'signin',pathMatch:'full'},
   {path:'signin',component:SigninComponent},
   {path:'signup',component:SignupComponent},
-  {path:'resource',component:ResourceComponent},
-  {path:'project',component:ProjectComponent},
-  {path:'formula',component:FormulaComponent},
-  {path:'template',component:TemplateComponent}
+  {path:'resource',canActivate:[AuthGuardService],component:ResourceComponent},
+  {path:'project',canActivate:[AuthGuardService],component:ProjectComponent},
+  {path:'formula',canActivate:[AuthGuardService],component:FormulaComponent},
+  {path:'template',canActivate:[AuthGuardService],component:TemplateComponent},
+  {path: '**', redirectTo:'signin'}
 ];
 
 @NgModule({

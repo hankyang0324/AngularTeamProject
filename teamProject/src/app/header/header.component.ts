@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
   pageTitle:string = "";
   signState:boolean = false;
   username:string="";
+  date:string="";
 
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router,
@@ -27,6 +28,11 @@ export class HeaderComponent implements OnInit {
         this.username=username;
       }
     );
+    this.authService.dateUpdate.subscribe(
+      (userDate:string)=>{
+        this.date=userDate;
+      }
+    )
     this.pageInfoService.pageTitleUpdate.subscribe(
       (pageTitle:string)=>{
         this.pageTitle=pageTitle;
@@ -48,12 +54,12 @@ export class HeaderComponent implements OnInit {
     this.authService.signStateUpdate(this.signState);
     this.username="";
     this.authService.usernameUpdate(this.username);
+    this.date="";
     this.pageTitle="";
     this.pageInfoService.pageTitle="Project1";
     this.dsService.dataReset();
     this.router.navigate(['./signin']);
     this.pageInfoService.RSCHeader1Reset();
     this.pageInfoService.RSCHeader2Reset();
-
   }
 }

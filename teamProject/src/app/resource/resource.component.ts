@@ -35,8 +35,7 @@ export class ResourceComponent implements OnInit, OnDestroy {
       this.clientDatas=this.dsService.project2Data;
       this.cols=this.pageInfoService.RSCHeader2;
     }
-    let lastclientData=this.clientDatas[this.clientDatas.length-1];
-    for(let item in lastclientData) {
+    for(let item in this.cols) {
       if(item!=='name' && item!=='code'){
         this.globalFilterFields.push(item);
       }
@@ -55,8 +54,7 @@ export class ResourceComponent implements OnInit, OnDestroy {
       this.clientDatas=this.dsService.project2Data;
       this.cols=this.pageInfoService.RSCHeader2;
     }   
-    let lastclientData=this.clientDatas[this.clientDatas.length-1];
-    for(let item in lastclientData) {
+    for(let item in this.cols) {
       if(item!=='name' && item!=='code'){
         this.globalFilterFields.push(item);
       }
@@ -96,7 +94,6 @@ export class ResourceComponent implements OnInit, OnDestroy {
     this.addInfo[this.addHeader]='';
     this.globalFilterFields.push(this.addHeader);
     this.ifAdding=false;
-    
   }
 
   onCancelCol(){
@@ -125,6 +122,7 @@ export class ResourceComponent implements OnInit, OnDestroy {
       return;
     for(let col of this.cols)
       this.clientDatas[last][col['field']]=this.addInfo[col['field']];
+    this.clientDatas[last]['_id']=last.toString();
     if(this.selectedPro.label=='Project1'){
       this.dsService.project1DataLeft.push(this.clientDatas[last]);
     } else {

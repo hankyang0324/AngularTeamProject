@@ -144,3 +144,8 @@ a {
 a:hover{
     color:gray;
 }
+
+.errDiv {
+  color: red;
+  font-size: 19px;
+}

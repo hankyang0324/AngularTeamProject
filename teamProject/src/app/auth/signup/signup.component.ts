@@ -12,8 +12,8 @@ export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   nameWarn:boolean=false;
   pwdWarn:boolean=false;
+  err:string="";
   credentials: TokenPayload = {
-    _id:'',
     name:'',
     password:''
   }
@@ -23,18 +23,29 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
     this.signupForm = new FormGroup({
       'userData': new FormGroup({ //userData对应formGroupName
-        'username': new FormControl(null, [Validators.required]),//第一个参数是默认value，username对应formControlName,第一个this捆绑的不是这个class，是angular调用的时候捆绑的是触发这个event的element，第二个this捆绑的是这个class，function中this.forbiddenUsernames中的this要用到
-        'password': new FormControl(null, [Validators.required]),//FormControl(defalut value,[validators,…])
+        'username': new FormControl(null, [Validators.required,this.minimunLength.bind(this)]),//第一个参数是默认value，username对应formControlName,第一个this捆绑的不是这个class，是angular调用的时候捆绑的是触发这个event的element，第二个this捆绑的是这个class，function中this.forbiddenUsernames中的this要用到
+        'password': new FormControl(null, [Validators.required,this.minimunLength.bind(this)]),//FormControl(defalut value,[validators,…])
       }),
     });
     this.signupForm.valueChanges.subscribe(()=>{ //检测表值变化
       if(this.signupForm.get('userData.username').valid){
         this.nameWarn=false;
+        this.err="";
       }
       if(this.signupForm.get('userData.password').valid){
         this.pwdWarn=false;
       }
     });
+  }
+
+  minimunLength(control:FormControl):{[s: string]:boolean}{
+    let str:string=control.value;
+    if(str){
+      if(str.length<6 && str.length>0) {
+        return {'LengthForbidden':true};
+      }
+    }
+    return null;
   }
 
   onSubmit(){
@@ -48,16 +59,16 @@ export class SignupComponent implements OnInit {
       this.credentials.name=this.signupForm.get('userData.username').value;
       this.credentials.password=this.signupForm.get('userData.password').value;
       this.authService.register(this.credentials).subscribe(
-        (response)=>{
-          console.log(response);
+        (res)=>{
+          console.log(res);
           this.router.navigate(['./signin']);
+          this.err="";
         },
         err => {
-          console.log('err');
+          this.err=err.error;
           console.log(err.error);
         }
       );
-      // this.router.navigate(['./signin']);
     }
   }
 }

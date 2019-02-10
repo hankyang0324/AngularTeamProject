@@ -3,6 +3,11 @@
     <div class="signInDiv3">
       <h1>Login</h1>
       <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+        <div
+          class="errDiv"
+          *ngIf="err">
+          Your ID or password was incorrect
+        </div>
         <div formGroupName="userData">
           <div class="form-group">
             <label for="username">Username</label>

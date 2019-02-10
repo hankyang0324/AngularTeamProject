@@ -3,7 +3,6 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router'; 
 import { AuthService,TokenPayload } from '../auth.service';
 import { PageInfoService } from '../../shared/page-info.service'
-// import { AuthGuardService } from '../auth-guard.service';
 
 @Component({
   selector: 'app-signin',
@@ -14,8 +13,8 @@ export class SigninComponent implements OnInit{
   signinForm: FormGroup;
   nameWarn:boolean=false;
   pwdWarn:boolean=false;
+  err:string="";
   credentials: TokenPayload = {
-    _id: '',
     name:'',
     password:''
   }
@@ -34,9 +33,11 @@ export class SigninComponent implements OnInit{
     this.signinForm.valueChanges.subscribe(()=>{ //检测表值变化
       if(this.signinForm.get('userData.username').valid){
         this.nameWarn=false;
+        this.err="";
       }
       if(this.signinForm.get('userData.password').valid){
         this.pwdWarn=false;
+        this.err="";
       }
     });
   }
@@ -52,23 +53,19 @@ export class SigninComponent implements OnInit{
       this.credentials.name=this.signinForm.get('userData.username').value;
       this.credentials.password=this.signinForm.get('userData.password').value;
       this.authService.login(this.credentials).subscribe(
-        (response)=>{
-          console.log("response");
+        ()=>{
           this.authService.signState=true;
-          this.router.navigate(['./resource']);
           this.authService.usernameUpdate(this.signinForm.get('userData.username').value);
           this.pageInfoService.pageTitleUpdate.next("Project1");
+          this.err="";
+          this.router.navigate(['./resource']);
         },
         err => {
           this.authService.signState=false;
-          console.error(err.error);
+          this.err=err.error;
           console.log(err.error);
         }
       );
-      // this.router.navigate(['./resource']);
-      // this.authService.signState=true;
-      // this.authService.usernameUpdate(this.signinForm.get('userData.username').value);
-      // this.pageInfoService.pageTitleUpdate.next("Project1");
     }
   }
 

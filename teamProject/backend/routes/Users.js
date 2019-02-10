@@ -10,11 +10,9 @@ users.use(cors());
 process.env.SECRET_KEY = 'secret';
 
 users.post('/register',(req,res)=>{
-    const today = new Date();
     const userData = {
         name: req.body.name,
         password: req.body.password,
-        created: today
     };    
     User.findOne({
         name: req.body.name
@@ -25,7 +23,7 @@ users.post('/register',(req,res)=>{
                     userData.password = hash;
                     User.create(userData) //schema 自带的 method
                         .then(user => {
-                            res.send({status: user.name + 'Registered!'});
+                            res.send({status: user.name + ' Registered!'});
                         })
                         .catch(err=> {
                             res.send('error: '+err);
@@ -49,13 +47,12 @@ users.post('/login',(req,res)=>{
                 if(bcrypt.compareSync(req.body.password, user.password)) {
                     //passwords match
                     const payload = {
-                        _id:user._id, //id哪来的？
-                        name:user.name
+                        name:user.name,
+                        date:user.date
                     };
                     let token = jwt.sign(payload, process.env.SECRET_KEY,{
                         expiresIn: 1440 
                     });
-                    console.log(token);
                     res.json(token);
                 } else {
                     //passwords don't match

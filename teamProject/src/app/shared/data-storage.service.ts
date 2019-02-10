@@ -1,121 +1,37 @@
 import { Injectable } from '@angular/core';
 import { PageInfoService } from './page-info.service'
-import { ThrowStmt } from '@angular/compiler';
+import { HttpClient } from '@angular/common/http'
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class DataStorageService {
+  
+  clientDatas:object[]=[{}];
+  project1Data:Object[];
+  project2Data:Object[];
+  project1DataLeft:Object[];
+  project2DataLeft:Object[];
+  project1DataShared:Object[];
+  project2DataShared:Object[];
 
-  clientDatas=[
-    {
-      'code':'00 00 00',
-      'name':'General Conditions'
-    },
-    {
-      'code':'00 00 01',
-      'name':'Non-Reimbursable'
-    },
-    {
-      'code':'00 31 02',
-      'name':'Permits'
-    },
-    {
-      'code':'00 00 03',
-      'name':'General Conditions'
-    },
-    {
-      'code':'00 00 04',
-      'name':'Non-Reimbursable'
-    },
-    {
-      'code':'00 31 05',
-      'name':'Permits'
-    },
-    {
-      'code':'00 00 06',
-      'name':'General Conditions'
-    },
-    {
-      'code':'00 00 07',
-      'name':'Non-Reimbursable'
-    },
-    {
-      'code':'00 31 08',
-      'name':'Permits'
-    },
-    {
-      'code':'00 00 09',
-      'name':'General Conditions'
-    },
-    {
-      'code':'00 00 10',
-      'name':'Non-Reimbursable'
-    },
-    {
-      'code':'00 31 11',
-      'name':'Permits'
-    },
-    {
-      'code':'00 00 12',
-      'name':'General Conditions'
-    },
-    {
-      'code':'00 00 13',
-      'name':'Non-Reimbursable'
-    },
-    {
-      'code':'00 31 14',
-      'name':'Permits'
-    },
-    {
-      'code':'00 01 15',
-      'name':'Non-Reimbursable'
-    },
-    {
-      'code':'01 31 16',
-      'name':'Permits'
-    },
-    {
-      'code':'00 30 17',
-      'name':'General Conditions'
-    },
-    {
-      'code':'00 04 18',
-      'name':'Non-Reimbursable'
-    },
-    {
-      'code':'04 31 19',
-      'name':'Permits'
-    },
-    {
-      'code':'06 04 20',
-      'name':'Non-Reimbursable'
-    },
-    {
-      'code':'02 31 21',
-      'name':'Permits'
-    },
-  ];
-
-  constructor(private pageInfoService: PageInfoService){}
+  constructor(private pageInfoService: PageInfoService, private http:HttpClient){
+    this.http.get<object[]>('/users/data').subscribe(
+      data=>{this.clientDatas=data;
+      this.dataReset();
+    });
+  }
 
   deepClone(source:any){
     return JSON.parse(JSON.stringify(source));
   }
 
-  project1Data:Object[]=this.deepClone(this.clientDatas);//深拷贝，完全不影响clientData
-  project2Data:Object[]=this.deepClone(this.clientDatas);
-  project1DataLeft:Object[]=[...this.project1Data];//浅拷贝，删增元素互不影响，更改元素属性互相影响
-  project2DataLeft:Object[]=[...this.project2Data];
-  project1DataShared:Object[]=[];
-  project2DataShared:Object[]=[];
-
-
   dataReset(){
-    this.project1Data=this.deepClone(this.clientDatas);
+    this.project1Data=this.deepClone(this.clientDatas);//深拷贝，完全不影响clientData
     this.project2Data=this.deepClone(this.clientDatas);
-    this.project1DataLeft=[...this.project1Data];
+    this.project1DataLeft=[...this.project1Data];//浅拷贝，删增元素互不影响，更改元素属性互相影响
     this.project2DataLeft=[...this.project2Data];
     this.project1DataShared=[];
     this.project2DataShared=[];
@@ -135,6 +51,15 @@ export class DataStorageService {
           delete item[attr];
         }
       }
+    }
+  }
+
+  postData(project:number,Post:{_id:string,name:string,code:string}):Observable<any>{
+    if(project===1){
+      return this.http.post('/users/post1',Post);
+    }
+    if(project===2){
+      return this.http.post('/users/post2',Post);
     }
   }
 }
