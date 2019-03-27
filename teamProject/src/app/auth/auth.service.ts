@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Subject,Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
-import { Router } from '@angular/router'
 import * as jwt_decode from 'jwt-decode'
 
 // export interface UserDetails {
@@ -46,12 +45,12 @@ export class AuthService {
     this.dateUpdate.next(this.date);
   }
 
-  // private getToken():string {
-  //   if(!this.token) {
-  //     this.token = localStorage.getItem('userToken');
-  //   }
-  //   return this.token;
-  // }
+  getToken():string {
+    if(!this.token) {
+      this.token = localStorage.getItem('userToken');
+    }
+    return this.token;
+  }
 
   // getUserDetails(): UserDetails {
   //   const token = this.getToken();
@@ -91,7 +90,7 @@ export class AuthService {
   }
 
   resource():Observable<any> {
-    return this.http.get('/users/profile',{
+    return this.http.get('/users/resource',{
       headers:{Authorization:'$(this.getToken())'}
     })
   }

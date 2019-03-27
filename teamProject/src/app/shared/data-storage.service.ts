@@ -19,8 +19,9 @@ export class DataStorageService {
 
   constructor(private pageInfoService: PageInfoService, private http:HttpClient){
     this.http.get<object[]>('/users/data').subscribe(
-      data=>{this.clientDatas=data;
-      this.dataReset();
+      data=>{
+        this.clientDatas=data;
+        this.dataReset();
     });
   }
 
