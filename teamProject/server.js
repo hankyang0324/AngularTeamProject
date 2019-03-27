@@ -21,7 +21,6 @@ mongoose
     .catch(err=>console.log(err));
 var Users = require('./backend/routes/Users');
 var Datas = require('./backend/routes/Datas');
-
 app.use('/users',Datas);//为啥地址必须一样
 app.use('/users',Users);
 app.listen(port,function(){
